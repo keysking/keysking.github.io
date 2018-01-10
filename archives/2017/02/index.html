@@ -372,17 +372,19 @@ strcmp(string,string)函数漏洞
     
 
         <!-- Post Title -->
-        <p class="article-headline-p"><a href="/L293D电机驱动板在Arduino上使用笔记/2017/02/09/">L293D电机驱动版在Arduino上使用笔记</a></p>
+        <p class="article-headline-p"><a href="/DVWA漏洞系统攻略-low/2017/02/09/">DVWA漏洞系统攻略_low</a></p>
     </div>
 
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            硬件连接
+            # 
+1.Brute Force    暴力破解12345678910111213141516171819202122232425262728293031 &lt;?phpif( isset( $_GET['Login'] ) ) &#123;    $user = $_GET['username'];        $pass = $_GET['password'];    $pass = md5($pass);    $qry = "SELECT * FROM `users` WHERE user='$user' AND password='$pass';";    $result = mysql_query( $qry ) or die( '&lt;pre&gt;' . mysql_error() . '&lt;/pre&gt;' );    if( $result &amp;&amp; mysql_num_rows( $result ) == 1 ) &#123;        // Get users details        $i=0; // Bug fix.        $avatar = mysql_result( $result, $i, "avatar" );        // Login Successful        echo "&lt;p&gt;Welcome to the password protected area " . $user . "&lt;/p&gt;";        echo '&lt;img src="' . $avatar . '" /&gt;';    &#125; else &#123;        //Login failed        echo "&lt;pre&gt;&lt;br&gt;Username and/or password incorrect.&lt;/pre&gt;";    &#125;    mysql_close();&#125;?&gt;
+从取得网页上传来的数据后,直接去构建查询语句,进行sql查询,没有经过任何处理,完全不用啥暴力破解,直接破坏sql语句就好了嘛….
         
         &nbsp;&nbsp;&nbsp;
         <span>
-            <a href="/L293D电机驱动板在Arduino上使用笔记/2017/02/09/" target="_self">واصل القراءة</a>
+            <a href="/DVWA漏洞系统攻略-low/2017/02/09/" target="_self">واصل القراءة</a>
         </span>
     </div>
     <!-- Post_entry Info-->
@@ -428,19 +430,17 @@ strcmp(string,string)函数漏洞
     
 
         <!-- Post Title -->
-        <p class="article-headline-p"><a href="/DVWA漏洞系统攻略-low/2017/02/09/">DVWA漏洞系统攻略_low</a></p>
+        <p class="article-headline-p"><a href="/L293D电机驱动板在Arduino上使用笔记/2017/02/09/">L293D电机驱动版在Arduino上使用笔记</a></p>
     </div>
 
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            # 
-1.Brute Force    暴力破解12345678910111213141516171819202122232425262728293031 &lt;?phpif( isset( $_GET['Login'] ) ) &#123;    $user = $_GET['username'];        $pass = $_GET['password'];    $pass = md5($pass);    $qry = "SELECT * FROM `users` WHERE user='$user' AND password='$pass';";    $result = mysql_query( $qry ) or die( '&lt;pre&gt;' . mysql_error() . '&lt;/pre&gt;' );    if( $result &amp;&amp; mysql_num_rows( $result ) == 1 ) &#123;        // Get users details        $i=0; // Bug fix.        $avatar = mysql_result( $result, $i, "avatar" );        // Login Successful        echo "&lt;p&gt;Welcome to the password protected area " . $user . "&lt;/p&gt;";        echo '&lt;img src="' . $avatar . '" /&gt;';    &#125; else &#123;        //Login failed        echo "&lt;pre&gt;&lt;br&gt;Username and/or password incorrect.&lt;/pre&gt;";    &#125;    mysql_close();&#125;?&gt;
-从取得网页上传来的数据后,直接去构建查询语句,进行sql查询,没有经过任何处理,完全不用啥暴力破解,直接破坏sql语句就好了嘛….
+            硬件连接
         
         &nbsp;&nbsp;&nbsp;
         <span>
-            <a href="/DVWA漏洞系统攻略-low/2017/02/09/" target="_self">واصل القراءة</a>
+            <a href="/L293D电机驱动板在Arduino上使用笔记/2017/02/09/" target="_self">واصل القراءة</a>
         </span>
     </div>
     <!-- Post_entry Info-->
@@ -640,6 +640,16 @@ HTTP是一种无状态协议，意思是说Web浏览器与Web服务器之间不�
     
 
     <!-- Pages  -->
+    
+        <li>
+            <a href="http://www.z16388.top/" title="友情链接">
+                
+                    <i class="material-icons sidebar-material-icons">z16388</i>
+                
+                友情链接
+            </a>
+        </li>
+        
     
 
     <!-- Article Number  -->

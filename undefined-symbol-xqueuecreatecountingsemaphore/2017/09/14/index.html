@@ -53,12 +53,7 @@
     <link rel="icon" href="/img/favicon.png">
 
     <meta name="format-detection" content="telephone=no"/>
-    <meta name="description" itemprop="description" content="&amp;nbsp;
-
-用C++  MDK  HAL  freeRTOS写stm32 程序,今晚编译一直报这个错误,搜索了一下,这玩意明明定义了呀,是人家freeRTOS官方的文件,我没碰呀.
-google,百度齐上阵,没几个遇见的,遇见的也没见有什么解决方案的,后来终于在freeRTOS官方论坛的陈旧存档里翻到了相关的讨论(点这),说是要把
-configUSE_COUNTING_SEMAPHORES设置为1.
-">
+    <meta name="description" itemprop="description" content="">
     <meta name="keywords" content="">
     <meta name="theme-color" content="#0097A7">
 
@@ -239,17 +234,12 @@ configUSE_COUNTING_SEMAPHORES设置为1.
     <meta property="og:type" content="blog">
     <meta property="og:title" content="Undefined symbol xQueueCreateCountingSemaphore 问题解决 | keysking瞎写东西的地方">
     <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content="&amp;nbsp;
-
-用C++  MDK  HAL  freeRTOS写stm32 程序,今晚编译一直报这个错误,搜索了一下,这玩意明明定义了呀,是人家freeRTOS官方的文件,我没碰呀.
-google,百度齐上阵,没几个遇见的,遇见的也没见有什么解决方案的,后来终于在freeRTOS官方论坛的陈旧存档里翻到了相关的讨论(点这),说是要把
-configUSE_COUNTING_SEMAPHORES设置为1.
-">
+    <meta property="og:description" content="">
     
 
     
         <meta property="article:published_time" content="Thu Sep 14 2017 23:22:07 GMT+0800">
-        <meta property="article:modified_time" content="Wed Jan 10 2018 21:30:20 GMT+0800">
+        <meta property="article:modified_time" content="Wed Jan 10 2018 21:49:32 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -272,7 +262,7 @@ configUSE_COUNTING_SEMAPHORES设置为1.
     "mainEntityOfPage": "http://yoursite.com/undefined-symbol-xqueuecreatecountingsemaphore/2017/09/14/index.html",
     "headline": "Undefined symbol xQueueCreateCountingSemaphore 问题解决",
     "datePublished": "Thu Sep 14 2017 23:22:07 GMT+0800",
-    "dateModified": "Wed Jan 10 2018 21:30:20 GMT+0800",
+    "dateModified": "Wed Jan 10 2018 21:49:32 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Keysking",
@@ -292,12 +282,7 @@ configUSE_COUNTING_SEMAPHORES设置为1.
         }
     },
     "keywords": "",
-    "description": "&amp;nbsp;
-
-用C++  MDK  HAL  freeRTOS写stm32 程序,今晚编译一直报这个错误,搜索了一下,这玩意明明定义了呀,是人家freeRTOS官方的文件,我没碰呀.
-google,百度齐上阵,没几个遇见的,遇见的也没见有什么解决方案的,后来终于在freeRTOS官方论坛的陈旧存档里翻到了相关的讨论(点这),说是要把
-configUSE_COUNTING_SEMAPHORES设置为1.
-",
+    "description": "",
 }
 </script>
 
@@ -488,12 +473,13 @@ configUSE_COUNTING_SEMAPHORES设置为1.
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>&nbsp;</p>
-<p><img src="http://blog.keysking.com/wp-content/uploads/2017/09/img_59ba9d0d07ff6.png" alt=""></p>
+        <p><img src="http://blog.keysking.com/wp-content/uploads/2017/09/img_59ba9d0d07ff6.png" alt=""></p>
 <p>用C++  MDK  HAL  freeRTOS写stm32 程序,今晚编译一直报这个错误,搜索了一下,这玩意明明定义了呀,是人家freeRTOS官方的文件,我没碰呀.</p>
 <p>google,百度齐上阵,没几个遇见的,遇见的也没见有什么解决方案的,后来终于在freeRTOS官方论坛的陈旧存档里翻到了相关的讨论(<a href="http://www.freertos.org/FreeRTOS_Support_Forum_Archive/December_2011/freertos_Problem_with_creating_counting_semaphore._4906952.html" target="_blank" rel="noopener">点这</a>),说是要把</p>
-<p><pre>configUSE_COUNTING_SEMAPHORES设置为1.</pre></p>
-<p><br><a id="more"></a></p>
+<pre>configUSE_COUNTING_SEMAPHORES设置为1.
+
+</pre>
+
 <p><img src="http://blog.keysking.com/wp-content/uploads/2017/09/img_59ba9dfbbbae2.png" alt=""></p>
 <p>讨论比较久远了,是2011年的,现在这个宏定义都不在他们说的那个文件夹里了,不过我还是尝试了一下,没想到成功了.随记录之,以方便自己以后再遇此问题,也希望能帮助跟我一样碰到此问题的人.</p>
 <p><img src="http://blog.keysking.com/wp-content/uploads/2017/09/img_59ba9d00decbb.png" alt=""></p>
@@ -633,6 +619,16 @@ configUSE_COUNTING_SEMAPHORES设置为1.
     
 
     <!-- Pages  -->
+    
+        <li>
+            <a href="http://www.z16388.top/" title="友情链接">
+                
+                    <i class="material-icons sidebar-material-icons">z16388</i>
+                
+                友情链接
+            </a>
+        </li>
+        
     
 
     <!-- Article Number  -->

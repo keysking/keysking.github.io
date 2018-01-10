@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>w3af翻译与使用 | keysking瞎写东西的地方</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="干啥的?w3af是一个Web应用程序攻击和检查框架.该项目已超过130个插件,其中包括检查网站爬虫,SQL注入(SQLInjection),跨站(XSS),本地文件包含(LFI),远程文件包含(RFI)等.该项目的目标是要建立一个框架,以寻找和开发Web应用安全漏洞,所以很容易使用和扩展. 进入">
+<meta property="og:type" content="article">
+<meta property="og:title" content="w3af翻译与使用">
+<meta property="og:url" content="http://yoursite.com/w3af翻译与使用/2017/03/12">
+<meta property="og:site_name" content="keysking瞎写东西的地方">
+<meta property="og:description" content="干啥的?w3af是一个Web应用程序攻击和检查框架.该项目已超过130个插件,其中包括检查网站爬虫,SQL注入(SQLInjection),跨站(XSS),本地文件包含(LFI),远程文件包含(RFI)等.该项目的目标是要建立一个框架,以寻找和开发Web应用安全漏洞,所以很容易使用和扩展. 进入">
+<meta property="og:image" content="https://raw.githubusercontent.com/keysking/Picture-bed/master/w3af/1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/keysking/Picture-bed/master/w3af/2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/keysking/Picture-bed/master/w3af/3.png">
+<meta property="og:updated_time" content="2017-03-13T13:31:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="w3af翻译与使用">
+<meta name="twitter:description" content="干啥的?w3af是一个Web应用程序攻击和检查框架.该项目已超过130个插件,其中包括检查网站爬虫,SQL注入(SQLInjection),跨站(XSS),本地文件包含(LFI),远程文件包含(RFI)等.该项目的目标是要建立一个框架,以寻找和开发Web应用安全漏洞,所以很容易使用和扩展. 进入">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/keysking/Picture-bed/master/w3af/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="keysking瞎写东西的地方" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">keysking瞎写东西的地方</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-w3af翻译与使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/w3af翻译与使用/2017/03/12" class="article-date">
+  <time datetime="2017-03-12T06:28:34.000Z" itemprop="datePublished">2017-03-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      w3af翻译与使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="干啥的"><a href="#干啥的" class="headerlink" title="干啥的?"></a>干啥的?</h2><p>w3af是一个Web应用程序攻击和检查框架.该项目已超过130个插件,其中包括检查网站爬虫,SQL注入(SQL<br>Injection),跨站(XSS),本地文件包含(LFI),远程文件包含(RFI)等.该项目的目标是要建立一个框架,以寻找和开发Web应用安全漏洞,所以很容易使用和扩展.</p>
+<h2 id="进入"><a href="#进入" class="headerlink" title="进入"></a>进入</h2><p><img src="https://raw.githubusercontent.com/keysking/Picture-bed/master/w3af/1.png" alt=""></p>
+<a id="more"></a> 
+<p><img src="https://raw.githubusercontent.com/keysking/Picture-bed/master/w3af/2.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">start</td>
+<td style="text-align:left">开始你的扫描</td>
+</tr>
+<tr>
+<td style="text-align:center">plugins</td>
+<td style="text-align:left">启用和配置插件</td>
+</tr>
+<tr>
+<td style="text-align:center">exploit</td>
+<td style="text-align:left">利用此漏洞</td>
+</tr>
+<tr>
+<td style="text-align:center">profile</td>
+<td style="text-align:left">列出并使用扫描配置文件</td>
+</tr>
+<tr>
+<td style="text-align:center">cleanup</td>
+<td style="text-align:left">在开始新的扫描前进行清理</td>
+</tr>
+<tr>
+<td style="text-align:center">——————</td>
+<td style="text-align:left">—————————————————————————</td>
+</tr>
+<tr>
+<td style="text-align:center">help</td>
+<td style="text-align:left">显示帮助,使用help [命令],能获得关于此命令的更多帮助</td>
+</tr>
+<tr>
+<td style="text-align:center">version</td>
+<td style="text-align:left">显示w3af的版本信息</td>
+</tr>
+<tr>
+<td style="text-align:center">keys</td>
+<td style="text-align:left">显示快捷键</td>
+</tr>
+<tr>
+<td style="text-align:center">——————</td>
+<td style="text-align:left">————————————————————————–</td>
+</tr>
+<tr>
+<td style="text-align:center">http-settings</td>
+<td style="text-align:left">设置框架的http配置</td>
+</tr>
+<tr>
+<td style="text-align:center">misc-setting</td>
+<td style="text-align:left">配置w3af的misc信息</td>
+</tr>
+<tr>
+<td style="text-align:center">target</td>
+<td style="text-align:left">设置目标的url</td>
+</tr>
+<tr>
+<td style="text-align:center">——————</td>
+<td style="text-align:left">—————————————————————————</td>
+</tr>
+<tr>
+<td style="text-align:center">back</td>
+<td style="text-align:left">返回上一级</td>
+</tr>
+<tr>
+<td style="text-align:center">exit</td>
+<td style="text-align:left">退出</td>
+</tr>
+<tr>
+<td style="text-align:center">——————</td>
+<td style="text-align:left">—————————————————————————-</td>
+</tr>
+<tr>
+<td style="text-align:center">kb</td>
+<td style="text-align:left">浏览知识库中存储的漏洞</td>
+</tr>
+</tbody>
+</table>
+<h2 id="plugins"><a href="#plugins" class="headerlink" title="plugins"></a>plugins</h2><p><img src="https://raw.githubusercontent.com/keysking/Picture-bed/master/w3af/3.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">list</td>
+<td>列出可用的插件</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">back</td>
+<td>转到上一个菜单</td>
+</tr>
+<tr>
+<td style="text-align:center">exit</td>
+<td>退出w3af</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">audit</td>
+<td>代码审计, 集成了大量的web扫描工具</td>
+</tr>
+<tr>
+<td style="text-align:center">evasion</td>
+<td>绕过, 主要是用来逃避目标的IDS，IBS的检测</td>
+</tr>
+<tr>
+<td style="text-align:center">crawl</td>
+<td>爬虫</td>
+</tr>
+<tr>
+<td style="text-align:center">infrastructure</td>
+<td>基础架构，主要用来扫描服务器的banner等基本信息</td>
+</tr>
+<tr>
+<td style="text-align:center">output</td>
+<td>对扫描出来的结果输出为特定的文件。</td>
+</tr>
+<tr>
+<td style="text-align:center">mangle</td>
+<td>主要是基于正则表达式的信息替换，比如注入，代码修改。</td>
+</tr>
+<tr>
+<td style="text-align:center">auth</td>
+<td>基于表单的身份认证</td>
+</tr>
+<tr>
+<td style="text-align:center">brutefroce</td>
+<td>暴力破解</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>参考资料</p>
+<p><a href="http://www.jianshu.com/p/10061ea5d28f" target="_blank" rel="noopener">http://www.jianshu.com/p/10061ea5d28f</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/w3af翻译与使用/2017/03/12" data-id="cjc8v92ao0006xz3kq8y6d6ln" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/CTF-天网管理系统-md50e与弱类型相等/2017/03/09" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">CTF_天网管理系统_md50e与弱类型相等</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino-电子/">-Arduino -电子</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DVWA-漏洞测试/">-DVWA -漏洞测试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Arduino-电子/" style="font-size: 10px;">-Arduino -电子</a> <a href="/tags/DVWA-漏洞测试/" style="font-size: 10px;">-DVWA -漏洞测试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/w3af翻译与使用/2017/03/12">w3af翻译与使用</a>
+          </li>
+        
+          <li>
+            <a href="/CTF-天网管理系统-md50e与弱类型相等/2017/03/09">CTF_天网管理系统_md50e与弱类型相等</a>
+          </li>
+        
+          <li>
+            <a href="/python练手-爬取乌云镜像高危漏洞/2017/03/01">[python练手]爬取乌云镜像高危漏洞</a>
+          </li>
+        
+          <li>
+            <a href="/web渗透方向总结/2017/02/15">web渗透方向总结</a>
+          </li>
+        
+          <li>
+            <a href="/DVWA漏洞系统攻略-low/2017/02/09">DVWA漏洞系统攻略_low</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Keysking<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

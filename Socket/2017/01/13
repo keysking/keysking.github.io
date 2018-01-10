@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Linux下C语言Socket编程 | keysking瞎写东西的地方</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Linux下C语言Socket编程啥是Socketsocket用中国话将叫做”套接字”,是用来进行网络数据传输的一种约定或者说是一种. 我们通常说的TCP协议和UDP协议都是通过socket来进行连接. 一些预备知识点IP地址每一台连接到互联网的设备都会有一个IP地址,IP地址就像一个电话号码或者说家庭住址,通过IP才可以唯一地定位到我们要进行网络通信的网络设备">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux下C语言Socket编程">
+<meta property="og:url" content="http://yoursite.com/Socket/2017/01/13">
+<meta property="og:site_name" content="keysking瞎写东西的地方">
+<meta property="og:description" content="Linux下C语言Socket编程啥是Socketsocket用中国话将叫做”套接字”,是用来进行网络数据传输的一种约定或者说是一种. 我们通常说的TCP协议和UDP协议都是通过socket来进行连接. 一些预备知识点IP地址每一台连接到互联网的设备都会有一个IP地址,IP地址就像一个电话号码或者说家庭住址,通过IP才可以唯一地定位到我们要进行网络通信的网络设备">
+<meta property="og:updated_time" content="2017-02-15T12:33:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux下C语言Socket编程">
+<meta name="twitter:description" content="Linux下C语言Socket编程啥是Socketsocket用中国话将叫做”套接字”,是用来进行网络数据传输的一种约定或者说是一种. 我们通常说的TCP协议和UDP协议都是通过socket来进行连接. 一些预备知识点IP地址每一台连接到互联网的设备都会有一个IP地址,IP地址就像一个电话号码或者说家庭住址,通过IP才可以唯一地定位到我们要进行网络通信的网络设备">
+  
+    <link rel="alternate" href="/atom.xml" title="keysking瞎写东西的地方" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">keysking瞎写东西的地方</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Socket" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Socket/2017/01/13" class="article-date">
+  <time datetime="2017-01-13T01:52:34.000Z" itemprop="datePublished">2017-01-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux下C语言Socket编程
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Linux下C语言Socket编程"><a href="#Linux下C语言Socket编程" class="headerlink" title="Linux下C语言Socket编程"></a>Linux下C语言Socket编程</h1><h2 id="啥是Socket"><a href="#啥是Socket" class="headerlink" title="啥是Socket"></a>啥是Socket</h2><p>socket用中国话将叫做”套接字”,是用来进行网络数据传输的一种约定或者说是一种.</p>
+<p>我们通常说的TCP协议和UDP协议都是通过socket来进行连接.</p>
+<h2 id="一些预备知识点"><a href="#一些预备知识点" class="headerlink" title="一些预备知识点"></a>一些预备知识点</h2><h3 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h3><p>每一台连接到互联网的设备都会有一个IP地址,IP地址就像一个电话号码或者说家庭住址,通过IP才可以唯一地定位到我们要进行网络通信的网络设备</p>
+<a id="more"></a> 
+<h3 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h3><p>一个设备一般只有一个IP地址,但是却可能同时运行着多个进行网络数据交流的应用程序,如果只有IP地址,计算机虽然可以正确接收到数据包，但是却不知道要将数据包交给哪个网络程序来处理.</p>
+<p>为了区分不同的网络程序，计算机会为每个网络程序分配一个独一无二的端口号（Port Number），例如，Web服务的端口号是 80，FTP 服务的端口号是 21，SMTP 服务的端口号是 25。</p>
+<p>端口（Port）是一个虚拟的、逻辑上的概念。可以将端口理解为一道门，数据通过这道门流入流出，每道门有不同的编号，就是端口号。</p>
+<h3 id="数据传输方式"><a href="#数据传输方式" class="headerlink" title="数据传输方式"></a>数据传输方式</h3><p>计算机之间有很多数据传输方式，各有优缺点，常用的有两种：SOCK_STREAM 和 SOCK_DGRAM。</p>
+<blockquote>
+<p>1) SOCK_STREAM 表示面向连接的数据传输方式。数据可以准确无误地到达另一台计算机，如果损坏或丢失，可以重新发送，但效率相对较慢。常见的 http 协议就使用 SOCK_STREAM 传输数据，因为要确保数据的正确性，否则网页不能正常解析。</p>
+<p>2) SOCK_DGRAM<br>表示无连接的数据传输方式。计算机只管传输数据，不作数据校验，如果数据在传输中损坏，或者没有到达另一台计算机，是没有办法补救的。也就是说，数据错了就错了，无法重传。因为<br> SOCK_DGRAM 所做的校验工作少，所以效率比 SOCK_STREAM 高。</p>
+<p>QQ 视频聊天和语音聊天就使用 SOCK_DGRAM 传输数据，因为首先要保证通信的效率，尽量减小延迟，而数据的正确性是次要的，即使丢失很小的一部分数据，视频和音频也可以正常解析，最多出现噪点或杂音，不会对通信质量有实质的影响。</p>
+<blockquote>
+<p>​    注意：SOCK_DGRAM 没有想象中的糟糕，不会频繁的丢失数据，数据错误只是小概率事件。</p>
+</blockquote>
+<p>有可能多种协议使用同一种数据传输方式，所以在 socket 编程中，需要同时指明数据传输方式和协议。</p>
+</blockquote>
+<h2 id="使用socket-建立socket"><a href="#使用socket-建立socket" class="headerlink" title="使用socket()建立socket"></a>使用socket()建立socket</h2><p>在linux下,一切皆文件,socket也不例外,我们可以用操作文件的I/O函数来操作一个”socket文件”,但是,怎么建立一个socket文件呐?这需要用到一个在 &lt; sys/socket.h &gt;中的函数—-socket().</p>
+<p><code>int socket(int af, int type, int protocol);</code> </p>
+<ol>
+<li>af 为地址族（Address Family），也就是 IP 地址类型，常用的有 AF_INET 和 AF_INET6。AF 是“Address Family”的简写，INET是“Inetnet”的简写。AF_INET 表示 IPv4 地址，例如 127.0.0.1；AF_INET6 表示 IPv6 地址，例如 1030::C9B4:FF12:48AA:1A2B。</li>
+<li>type 为数据传输方式，常用的有 SOCK_STREAM 和 SOCK_DGRAM,二者区别上面说过.</li>
+<li>protocol 表示传输协议，常用的有 IPPROTO_TCP 和 IPPTOTO_UDP，分别表示 TCP 传输协议和 UDP 传输协议。</li>
+</ol>
+<p>常用:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">TCP套接字:</span><br><span class="line"><span class="keyword">int</span> tcp_socket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);  <span class="comment">//IPPROTO_TCP表示TCP协议</span></span><br><span class="line">UDP套接字:</span><br><span class="line"><span class="keyword">int</span> udp_socket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);  <span class="comment">//IPPROTO_UDP表示UDP协议</span></span><br></pre></td></tr></table></figure>
+<h3 id="使用bind-和connect-定位socket"><a href="#使用bind-和connect-定位socket" class="headerlink" title="使用bind()和connect()定位socket"></a>使用bind()和connect()定位socket</h3><p>虽然用socket()建立了一个”socket文件”,但是这个socket文件还不知道要与哪个IP的哪个端口(port)进行通信呐~所以我们需要用bind()和connect()来为socket进行配置.</p>
+<p>消息通话的发起段一般使用connect()函数来像另一端发送请求连接,而等待接受连接的一端使用bind来定义socket要接受哪个端口传来的连接请求.</p>
+<h4 id="connect"><a href="#connect" class="headerlink" title="connect()"></a>connect()</h4><p>connect()的原型如下:</p>
+<p><code>int connect(int sock, struct sockaddr *serv_addr, socklen_t addrlen);  //Linux</code> </p>
+<p>其中:</p>
+<h5 id="1-int-sock-为我们定义的socket文件"><a href="#1-int-sock-为我们定义的socket文件" class="headerlink" title="1. int sock 为我们定义的socket文件"></a>1. int sock 为我们定义的socket文件</h5><h5 id="2-struct-sockaddr-serv-addr-为sockaddr结构体变量的指针"><a href="#2-struct-sockaddr-serv-addr-为sockaddr结构体变量的指针" class="headerlink" title="2.struct sockaddr *serv_addr 为sockaddr结构体变量的指针"></a>2.struct sockaddr *serv_addr 为sockaddr结构体变量的指针</h5><p>因为sockaddr结构体的赋值比较麻烦,要把转化好的ip与端口结合起来写入,所以一般使用sockaddr_in,然后通过强制类型转化来带入connect().</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span>&#123;</span></span><br><span class="line">    <span class="keyword">sa_family_t</span>     sin_family;   <span class="comment">//地址族（Address Family），也就是地址类型</span></span><br><span class="line">    <span class="keyword">uint16_t</span>        sin_port;     <span class="comment">//16位的端口号</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">in_addr</span>  <span class="title">sin_addr</span>;</span>     <span class="comment">//32位IP地址</span></span><br><span class="line">    <span class="keyword">char</span>            sin_zero[<span class="number">8</span>];  <span class="comment">//不使用，一般用0填充</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>sockaddr_in结构体的第一个变量sin_family表示地址类型,其取值与前面说的socket()的第一个参数的取值是相同的.</p>
+</li>
+<li><p>第二个变量sin_port是让我们指定要发出信息的端口号,理论上其取值范围为0~65535,不过系统已经把0~1023分配给了特定的服务,所以一般我们自己的程序都会指定1024~65535之间的端口号.</p>
+<p>sin_port要求必须要采用网络数据格式,普通数字可以用htons()函数转换成网络数据格式的数字</p>
+</li>
+<li><p>第三个变量类型为in_addr,只是一个用于储存ip地址的变量</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">in_addr</span>&#123;</span></span><br><span class="line">    <span class="keyword">in_addr_t</span>  s_addr;  <span class="comment">//32位的IP地址</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>而在这个结构体里的in_addr_t类型与unsigned long一样的….不过我们输入ip的时候因为有四个点,所以肯定要用char数组啊,so,我们需要一个函数把一个字符串转化为in_addr_t的值,正好,我们有这个函数,叫做—–inet_addr().</p>
+<p>so,我们可以这样写</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">in_addr_t</span> a; </span><br><span class="line">a=inet_addr(<span class="string">"127.0.0.1"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最后的sin_zero[8]是多余的,是为了让sockaddr_in的结构体大小与sockaddr相同.</p>
+</li>
+</ul>
+<h5 id="3-socklen-t-addrlen-为addr变量的大小"><a href="#3-socklen-t-addrlen-为addr变量的大小" class="headerlink" title="3.socklen_t addrlen 为addr变量的大小"></a>3.socklen_t addrlen 为addr变量的大小</h5><p>一般直接写sizeof(struct sockaddr)   </p>
+<p>0.0</p>
+<h4 id="bind"><a href="#bind" class="headerlink" title="bind()"></a>bind()</h4><p>bind()的原型如下:</p>
+<p><code>int bind(int sock, struct sockaddr *serv_addr, socklen_t addrlen);  //Linux</code> </p>
+<p>可以看到,bind()的参数与connnect是一模一样的,其实他们的功能也差不多.都是配置socket属性,只不过使用bind定义的socke文件将会用来被动地等待连接,而connect()定义的socket文件讲会主动出击,去连接其他设备.</p>
+<p>因为差不多,参考上一条吧~~~ /笑cry</p>
+<p>不过要注意的一点是,使用connect就立即向目的IP发送连接请求,而使用bind()函数进行IP与端口绑定后,还要使用listen()函数使socket所指向的端口处于监听状态,使用accept()接受请求.</p>
+<h3 id="bind-后的listen-与accept"><a href="#bind-后的listen-与accept" class="headerlink" title="bind()后的listen()与accept()"></a>bind()后的listen()与accept()</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/Socket/2017/01/13" data-id="cjc8v92ag0002xz3kojljy9li" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/使用文件查看漏洞读取网页代码/2017/01/25" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          使用文件查看漏洞读取网页代码
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino-电子/">-Arduino -电子</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DVWA-漏洞测试/">-DVWA -漏洞测试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Arduino-电子/" style="font-size: 10px;">-Arduino -电子</a> <a href="/tags/DVWA-漏洞测试/" style="font-size: 10px;">-DVWA -漏洞测试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/w3af翻译与使用/2017/03/12">w3af翻译与使用</a>
+          </li>
+        
+          <li>
+            <a href="/CTF-天网管理系统-md50e与弱类型相等/2017/03/09">CTF_天网管理系统_md50e与弱类型相等</a>
+          </li>
+        
+          <li>
+            <a href="/python练手-爬取乌云镜像高危漏洞/2017/03/01">[python练手]爬取乌云镜像高危漏洞</a>
+          </li>
+        
+          <li>
+            <a href="/web渗透方向总结/2017/02/15">web渗透方向总结</a>
+          </li>
+        
+          <li>
+            <a href="/DVWA漏洞系统攻略-low/2017/02/09">DVWA漏洞系统攻略_low</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Keysking<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

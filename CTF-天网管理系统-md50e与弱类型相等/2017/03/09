@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>CTF_天网管理系统_md50e与弱类型相等 | keysking瞎写东西的地方</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="题目来源于实验吧,天网管理系统">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CTF_天网管理系统_md50e与弱类型相等">
+<meta property="og:url" content="http://yoursite.com/CTF-天网管理系统-md50e与弱类型相等/2017/03/09">
+<meta property="og:site_name" content="keysking瞎写东西的地方">
+<meta property="og:description" content="题目来源于实验吧,天网管理系统">
+<meta property="og:image" content="https://raw.githubusercontent.com/keysking/Picture-bed/master/QQ%E6%88%AA%E5%9B%BE20170309202307.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/keysking/Picture-bed/master/QQ%E6%88%AA%E5%9B%BE20170309203009.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/keysking/Picture-bed/master/QQ%E6%88%AA%E5%9B%BE20170309203157.png">
+<meta property="og:updated_time" content="2017-03-13T13:30:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CTF_天网管理系统_md50e与弱类型相等">
+<meta name="twitter:description" content="题目来源于实验吧,天网管理系统">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/keysking/Picture-bed/master/QQ%E6%88%AA%E5%9B%BE20170309202307.png">
+  
+    <link rel="alternate" href="/atom.xml" title="keysking瞎写东西的地方" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">keysking瞎写东西的地方</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-CTF-天网管理系统-md50e与弱类型相等" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/CTF-天网管理系统-md50e与弱类型相等/2017/03/09" class="article-date">
+  <time datetime="2017-03-09T12:21:53.000Z" itemprop="datePublished">2017-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CTF_天网管理系统_md50e与弱类型相等
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>题目来源于实验吧,<a href="http://www.shiyanbar.com/ctf/1810" target="_blank" rel="noopener">天网管理系统</a></p>
+<p><img src="https://raw.githubusercontent.com/keysking/Picture-bed/master/QQ%E6%88%AA%E5%9B%BE20170309202307.png" alt=""></p>
+<a id="more"></a>  
+<p>尝试直接点”登入系统”,无果.</p>
+<p>查看源代码,发现一条注释</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- $test=$_GET['username']; $test=md5($test); if($test=='0') --&gt;</span></span><br></pre></td></tr></table></figure>
+<p>于是想到了在php中,如果一个字符串的md5开头为0e的话,那么该字符串的md5会被php理解为0.</p>
+<p>so,在用户名处填入一个md5值开头为0e的一个字符串.</p>
+<blockquote>
+<p>部分md5值开头为0e的字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&gt; s878926199a</span><br><span class="line">&gt; 0e545993274517709034328855841020</span><br><span class="line">&gt; s155964671a</span><br><span class="line">&gt; 0e342768416822451524974117254469</span><br><span class="line">&gt; s214587387a</span><br><span class="line">&gt; 0e848240448830537924465865611904</span><br><span class="line">&gt; s214587387a</span><br><span class="line">&gt; 0e848240448830537924465865611904</span><br><span class="line">&gt; s878926199a</span><br><span class="line">&gt; 0e545993274517709034328855841020</span><br><span class="line">&gt; s1091221200a</span><br><span class="line">&gt; 0e940624217856561557816327384675</span><br><span class="line">&gt; s1885207154a</span><br><span class="line">&gt; 0e509367213418206700842008763514</span><br><span class="line">&gt; s1502113478a</span><br><span class="line">&gt; 0e861580163291561247404381396064</span><br><span class="line">&gt; s1885207154a</span><br><span class="line">&gt; 0e509367213418206700842008763514</span><br><span class="line">&gt; s1836677006a</span><br><span class="line">&gt; 0e481036490867661113260034900752</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>然后点击”登录系统”</p>
+<p>在网页的下面出现了这么一个地址:</p>
+<p><img src="https://raw.githubusercontent.com/keysking/Picture-bed/master/QQ%E6%88%AA%E5%9B%BE20170309203009.png" alt=""></p>
+<p>ok,与原网址相结合,构建新网址,访问.</p>
+<p>没有flag,只有如下几句代码与一段话语.</p>
+<p><img src="https://raw.githubusercontent.com/keysking/Picture-bed/master/QQ%E6%88%AA%E5%9B%BE20170309203157.png" alt=""></p>
+<p>从代码可以看出,其意思是指将password反序列化,而反序列化后的语句是一个数组,里面有user和pass两项,而且这两项分别等于一个字符串.不过,我们并不知道这字符串是啥~~</p>
+<p>但是,可以看到,题目中用的是”==”,我记得这玩意是可以绕过的,而且后面的”成也布尔,败也布尔”也提醒了我,于是立即去查资料.</p>
+<blockquote>
+<p>在php中 bool型的数据与字符串进行==运算,返回值为真.</p>
+</blockquote>
+<p>于是构建了如下序列化了的数组</p>
+<p>a:2:{s:4:”user”;b:1;s:4:”pass”;b:1;}</p>
+<p>a代表array，s代表string，b代表bool，而数字代表个数/长度</p>
+<p>于是,回到之前的网页,在帐号处输入s878926199a,密码处输入a:2:{s:4:”user”;b:1;s:4:”pass”;b:1;}</p>
+<p>点击”登录系统”,get flag.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/CTF-天网管理系统-md50e与弱类型相等/2017/03/09" data-id="cjc8v92a50000xz3kuiuwo043" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/w3af翻译与使用/2017/03/12" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          w3af翻译与使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/python练手-爬取乌云镜像高危漏洞/2017/03/01" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">[python练手]爬取乌云镜像高危漏洞</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino-电子/">-Arduino -电子</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DVWA-漏洞测试/">-DVWA -漏洞测试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Arduino-电子/" style="font-size: 10px;">-Arduino -电子</a> <a href="/tags/DVWA-漏洞测试/" style="font-size: 10px;">-DVWA -漏洞测试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/w3af翻译与使用/2017/03/12">w3af翻译与使用</a>
+          </li>
+        
+          <li>
+            <a href="/CTF-天网管理系统-md50e与弱类型相等/2017/03/09">CTF_天网管理系统_md50e与弱类型相等</a>
+          </li>
+        
+          <li>
+            <a href="/python练手-爬取乌云镜像高危漏洞/2017/03/01">[python练手]爬取乌云镜像高危漏洞</a>
+          </li>
+        
+          <li>
+            <a href="/web渗透方向总结/2017/02/15">web渗透方向总结</a>
+          </li>
+        
+          <li>
+            <a href="/DVWA漏洞系统攻略-low/2017/02/09">DVWA漏洞系统攻略_low</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Keysking<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

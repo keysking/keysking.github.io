@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>L293D电机驱动版在Arduino上使用笔记 | keysking瞎写东西的地方</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="硬件连接">
+<meta name="keywords" content="-Arduino -电子">
+<meta property="og:type" content="article">
+<meta property="og:title" content="L293D电机驱动版在Arduino上使用笔记">
+<meta property="og:url" content="http://yoursite.com/L293D电机驱动板在Arduino上使用笔记/2017/02/09">
+<meta property="og:site_name" content="keysking瞎写东西的地方">
+<meta property="og:description" content="硬件连接">
+<meta property="og:image" content="https://raw.githubusercontent.com/keysking/Picture-bed/master/L293D.jpg">
+<meta property="og:updated_time" content="2017-02-15T03:01:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="L293D电机驱动版在Arduino上使用笔记">
+<meta name="twitter:description" content="硬件连接">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/keysking/Picture-bed/master/L293D.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="keysking瞎写东西的地方" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">keysking瞎写东西的地方</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-L293D电机驱动板在Arduino上使用笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/L293D电机驱动板在Arduino上使用笔记/2017/02/09" class="article-date">
+  <time datetime="2017-02-09T03:35:33.000Z" itemprop="datePublished">2017-02-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      L293D电机驱动版在Arduino上使用笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="硬件连接"><a href="#硬件连接" class="headerlink" title="硬件连接"></a>硬件连接</h2><p><img src="https://raw.githubusercontent.com/keysking/Picture-bed/master/L293D.jpg" alt="L293D"></p>
+<a id="more"></a> 
+<h3 id="电源"><a href="#电源" class="headerlink" title="电源"></a>电源</h3><p>驱动板是可以接受Arduino板的电力的,但是,arduino也就那么点电压,带一两个小直流电机还好说,东西搞多了,也是供不应求的.不过幸好L293D支持外部供电,通过上图中的外接电源接口,就可以进行外部供电.</p>
+<p>进行外部供电的时候,需要将外接电源接口旁边的黄色跳线帽拔掉.</p>
+<p>可以给每个电机最多600ma电流，1.2A的峰值电流。</p>
+<p>电流超过1A的话,需要放散热块.</p>
+<p>建议使用18650电池.</p>
+<h3 id="引脚使用"><a href="#引脚使用" class="headerlink" title="引脚使用"></a>引脚使用</h3><blockquote>
+<p> 所有的六个模拟输入引脚都是可用的。它们也可以当做数字芯片来使用。（引脚14到19）</p>
+<pre><code>数字引脚2和13可用。
+
+下面的引脚只有在下面提到的直流或者步进电机工作时才会被用到
+
+   数字引脚11: 1号直流电机或者1号步进电机
+
+   数字引脚3: 2号直流电机或者1号步进电机
+
+   数字引脚5: 3号直流电机或者2号步进电机
+
+   数字引脚6：4号直流电机或者2号步进电机
+
+下面的引脚只有在下面的直流或者步进电机工作时才会被用到
+
+   数字信号4,7,8,和12通过74hc595（serial-to-parallel）来驱动直流或者步进电机
+
+下面的引脚只有在舵机工作时才会被用到
+
+   数字信号9：1号舵机
+
+   数字信号10： 2号舵机
+</code></pre></blockquote>
+<p>所以只要相应的引脚没被L293D驱动板使用到，就可以可以拿来用的但前提是得自己焊出引脚来。焊引脚的地方就是上图中的预留孔位.</p>
+<h3 id="电机连接"><a href="#电机连接" class="headerlink" title="电机连接"></a>电机连接</h3><p>L293D可以驱动4个直流电机(M1~M4),两个中间白色圈中的接口一般不用.</p>
+<p>L293D还可以接两个舵机,分别用数字引脚9和10控制.</p>
+<h2 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h2><p>使用L293D需要安装AFMotor库文件.</p>
+<h3 id="与直流电机有关的函数"><a href="#与直流电机有关的函数" class="headerlink" title="与直流电机有关的函数"></a>与直流电机有关的函数</h3><p>确保导入AFMotor库文件并#include &lt; AFMotor.h&gt;后,有这么几个函数需要用到</p>
+<ol>
+<li><p>AF_DCMotor <strong><em>motorname</em></strong>(<strong><em>motornum</em></strong>,<strong><em>frequency</em></strong>);</p>
+<ul>
+<li><p>motorname</p>
+<p>给电机起个名字,然后这个名字就是此电机在程序中的代号了</p>
+</li>
+<li><p>motornum</p>
+<p>用来选择你要给哪个电机取名字,参数范围为1~4</p>
+</li>
+<li><p>frequency</p>
+<p>用来设定此电机信号控制的频率.</p>
+<p>M1和M2可以使用<strong>MOTOR12_64KHZ,MOTOR12_8KHZ,MOTOR12_2KHZ,或者MOTOR12_1KHZ</strong>等常量</p>
+<p>M3和M4使用<strong>MOTOR34_64KHZ,MOTOR34_8KHZ,MOTOR34_1KHZ</strong>。</p>
+</li>
+</ul>
+</li>
+<li><p>setSpeed(<strong><em>speed</em></strong>)</p>
+<ul>
+<li>setSpeed用来设置电机的速度</li>
+<li>参数speed的取值范围从0（停止）到255（全速)</li>
+<li>motorname.setSpeed(speed)</li>
+</ul>
+</li>
+<li><p>run(<strong><em>direction</em></strong>)</p>
+<ul>
+<li>开跑</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>direction可以使用<strong>FORWARD,BACKWARD,RELEASE</strong>三个常量</li>
+</ul>
+<p>示范:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;AFMotor.h&gt;</span></span></span><br><span class="line"><span class="function">AF_DCMotor <span class="title">motor</span><span class="params">(<span class="number">2</span>,MOTOR12_64KHZ)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span></span>&#123;</span><br><span class="line">motor.setSpeed(<span class="number">200</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">motor.run(FORWARD);</span><br><span class="line">delay(<span class="number">1000</span>);</span><br><span class="line">motor.run(BACKWARD);</span><br><span class="line">delay(<span class="number">1000</span>);</span><br><span class="line">motor.run(RELEASE);</span><br><span class="line">delay(<span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="与步进电机有关的函数"><a href="#与步进电机有关的函数" class="headerlink" title="与步进电机有关的函数"></a>与步进电机有关的函数</h3><p>确保导入AFMotor库文件并#include &lt; AFMotor.h&gt;后,有这么几个函数需要用到</p>
+<ol>
+<li><p>AF_Stepper <strong><em>steppername</em></strong>(<strong><em>steps</em></strong>,<strong><em>portnumber</em></strong>)</p>
+<ul>
+<li><p>steppername</p>
+<p>给电机起个名字,然后这个名字就是此电机在程序中的代号了</p>
+</li>
+<li><p>steps</p>
+<p>设置电机每转的步数,比如设置36,则每步走1/36转</p>
+</li>
+<li><p>portnumber</p>
+<p>选择电机的通道,范围为1(通道1,2)和2(通道3和4)</p>
+</li>
+</ul>
+</li>
+<li><p>Step(<strong><em>steps,direction,style</em></strong>)</p>
+<ul>
+<li><p>step</p>
+<p> 转动的步数</p>
+</li>
+<li><p>direction</p>
+<p>转动的方向<strong>FORWARD 或者 BACKWARD</strong></p>
+</li>
+<li><p>style </p>
+<p>步进的模式,可以选择的参数:</p>
+<ul>
+<li><strong>SINGLE - 一次只给一相线圈供电</strong></li>
+<li><strong>DOUBLE - 一次给两项项圈都供电，得到更大的扭矩</strong></li>
+<li><strong>INTERLEAVE - 电机会运转得更柔滑，因为步数增加了一倍，同时速度也减小一半</strong></li>
+<li><strong>MICROSTEP - 电机会运转的更柔滑，精度更高，但扭矩也会减小</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>如果想更精细地控制步进电机，可以使用AccelStepper library，这个库带有电机加减速度功能。</p>
+<p>示范:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;AFMotor.h&gt;</span></span></span><br><span class="line">AF_Stepper motor(200,2)；</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">step</span><span class="params">()</span></span>&#123;</span><br><span class="line">motor.step(<span class="number">200</span>,FORWARD,SINGLE);</span><br><span class="line">motor.release();</span><br><span class="line">delay(<span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">Void <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">motor.step(<span class="number">100</span>,FORWARD,SINGLE);</span><br><span class="line">motor.step(<span class="number">100</span>,BACKWARD,SINGLE);</span><br><span class="line">motor.step(<span class="number">100</span>,FORWARD,DOUBLE);</span><br><span class="line">motor.step(<span class="number">100</span>,BACKWARD,DOUBLE);</span><br><span class="line">motor.step(<span class="number">100</span>,FORWARD,INTERLEAVE);</span><br><span class="line">motor.step(<span class="number">100</span>,BACKWARD,INTERLEAVE);</span><br><span class="line">motor.step(<span class="number">100</span>,FORWARD,MICROSTEP);</span><br><span class="line">motor.step(<span class="number">100</span>,BACKWARD,MICROSTEP);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/L293D电机驱动板在Arduino上使用笔记/2017/02/09" data-id="cjc8v92ak0004xz3ksplgv5lx" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Arduino-电子/">-Arduino -电子</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/DVWA漏洞系统攻略-low/2017/02/09" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          DVWA漏洞系统攻略_low
+        
+      </div>
+    </a>
+  
+  
+    <a href="/深入学习HTTP请求流程/2017/02/04" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">深入学习HTTP请求流程</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino-电子/">-Arduino -电子</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DVWA-漏洞测试/">-DVWA -漏洞测试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Arduino-电子/" style="font-size: 10px;">-Arduino -电子</a> <a href="/tags/DVWA-漏洞测试/" style="font-size: 10px;">-DVWA -漏洞测试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/w3af翻译与使用/2017/03/12">w3af翻译与使用</a>
+          </li>
+        
+          <li>
+            <a href="/CTF-天网管理系统-md50e与弱类型相等/2017/03/09">CTF_天网管理系统_md50e与弱类型相等</a>
+          </li>
+        
+          <li>
+            <a href="/python练手-爬取乌云镜像高危漏洞/2017/03/01">[python练手]爬取乌云镜像高危漏洞</a>
+          </li>
+        
+          <li>
+            <a href="/web渗透方向总结/2017/02/15">web渗透方向总结</a>
+          </li>
+        
+          <li>
+            <a href="/DVWA漏洞系统攻略-low/2017/02/09">DVWA漏洞系统攻略_low</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Keysking<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,433 +1,1196 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
+<html style="display: none;" >
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
 
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+        keysking瞎写东西的地方
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.en.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
   
-  <title>keysking瞎写东西的地方</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="keysking瞎写东西的地方">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="keysking瞎写东西的地方">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="keysking瞎写东西的地方">
-  
-    <link rel="alternate" href="/atom.xml" title="keysking瞎写东西的地方" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="keysking瞎写东西的地方">
+    <meta name="msapplication-starturl" content="http://yoursite.com/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="keysking瞎写东西的地方">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="keysking瞎写东西的地方">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="">
+    
+
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "keysking瞎写东西的地方",
+        "logo": "/img/favicon.png"
+    },
+    "url": "http://yoursite.com",
+    "image": {
+        "@type": "ImageObject",
+        "url": "/img/favicon.png"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://yoursite.com"
+    },
+    "description": ""
+}
+</script>
+
+
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
 </head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">keysking瞎写东西的地方</a>
-      </h1>
-      
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Index Module -->
+<div class="material-index mdl-grid">
+    
+        <!-- Paradox Header -->
+        <!-- Daily pic -->
+<div class="mdl-card mdl-shadow--2dp daily-pic mdl-cell mdl-cell--8-col index-top-block">
+
+    <!-- Pic & Slogan -->
+    <div class="mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/daily_pic.png)">
+        <p class="index-top-block-slogan"><a href="#">
+        
+            
+                你好,欢迎来到keysking瞎写东西的地方.
+请随便坐.
+            
+        
+        </a></p>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
+
+    <!-- Avatar & Name -->
+    <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+        <!-- Author Avatar -->
+        <div id="author-avatar">
+            <img src="/img/avatar.png" width="32px" height="32px" alt="avatar">
+        </div>
+        <div>
+            <strong>Keysking</strong>
+        </div>
     </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-w3af翻译与使用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/w3af翻译与使用/2017/03/12" class="article-date">
-  <time datetime="2017-03-12T06:28:34.000Z" itemprop="datePublished">2017-03-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/w3af翻译与使用/2017/03/12">w3af翻译与使用</a>
-    </h1>
-  
+</div>
 
-      </header>
+        <!-- Blog info -->
+<div class="mdl-card mdl-shadow--2dp something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop index-top-block">
+
+    <!-- Search -->
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="干啥的"><a href="#干啥的" class="headerlink" title="干啥的?"></a>干啥的?</h2><p>w3af是一个Web应用程序攻击和检查框架.该项目已超过130个插件,其中包括检查网站爬虫,SQL注入(SQL<br>Injection),跨站(XSS),本地文件包含(LFI),远程文件包含(RFI)等.该项目的目标是要建立一个框架,以寻找和开发Web应用安全漏洞,所以很容易使用和扩展.</p>
-<h2 id="进入"><a href="#进入" class="headerlink" title="进入"></a>进入</h2><p><img src="https://raw.githubusercontent.com/keysking/Picture-bed/master/w3af/1.png" alt=""></p>
-        
-          <p class="article-more-link">
-            <a href="/w3af翻译与使用/2017/03/12#more">Read More</a>
-          </p>
-        
-      
+    <!-- Google -->
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" method="post" action="">
+        <label id="search-label" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent mdl-shadow--4dp" for="search">
+            <i class="material-icons mdl-color-text--white" role="presentation">search</i>
+        </label>
+
+        <form autocomplete="off" id="search-form" method="get" action="//google.com/search" accept-charset="UTF-8" class="mdl-textfield__expandable-holder" target="_blank">
+            <input class="mdl-textfield__input search-input" type="search" name="q" id="search" placeholder="">
+            <label id="search-form-label" class="mdl-textfield__label" for="search"></label>
+
+            <input type="hidden" name="sitesearch" value="http://yoursite.com">
+        </form>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/w3af翻译与使用/2017/03/12" data-id="cjc8v92ao0006xz3kq8y6d6ln" class="article-share-link">Teilen</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
 
 
-  
-    <article id="post-CTF-天网管理系统-md50e与弱类型相等" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/CTF-天网管理系统-md50e与弱类型相等/2017/03/09" class="article-date">
-  <time datetime="2017-03-09T12:21:53.000Z" itemprop="datePublished">2017-03-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/CTF-天网管理系统-md50e与弱类型相等/2017/03/09">CTF_天网管理系统_md50e与弱类型相等</a>
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>题目来源于实验吧,<a href="http://www.shiyanbar.com/ctf/1810" target="_blank" rel="noopener">天网管理系统</a></p>
-<p><img src="https://raw.githubusercontent.com/keysking/Picture-bed/master/QQ%E6%88%AA%E5%9B%BE20170309202307.png" alt=""></p>
-        
-          <p class="article-more-link">
-            <a href="/CTF-天网管理系统-md50e与弱类型相等/2017/03/09#more">Read More</a>
-          </p>
-        
-      
+
+
+
+
+    <!-- LOGO -->
+    <div class="something-else-logo mdl-color--white mdl-color-text--grey-600">
+        <a href="#" target="_blank">
+            <img src="/img/logo.png" alt="logo" />
+        </a>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/CTF-天网管理系统-md50e与弱类型相等/2017/03/09" data-id="cjc8v92a50000xz3kuiuwo043" class="article-share-link">Teilen</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
 
+    <!-- Infomation -->
+    <div class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600">
+        <!-- Blog Title -->
+        <div>
+            <strong>keysking瞎写东西的地方</strong>
+        </div>
+        <div class="section-spacer"></div>
 
-  
-    <article id="post-python练手-爬取乌云镜像高危漏洞" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/python练手-爬取乌云镜像高危漏洞/2017/03/01" class="article-date">
-  <time datetime="2017-03-01T14:11:03.000Z" itemprop="datePublished">2017-03-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/python练手-爬取乌云镜像高危漏洞/2017/03/01">[python练手]爬取乌云镜像高危漏洞</a>
-    </h1>
-  
+        <!-- Pages -->
+        <button id="show-pages-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">view_carousel</i>
+            <span class="visuallyhidden">Pages</span>
+        </button>
+        <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="show-pages-button">
+            
+        </ul>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>刚刚开始学习python爬虫,写个小爬虫练练手.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">web_of_spidep</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, u)</span>:</span></span><br><span class="line">        self.head = &#123;</span><br><span class="line">            <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/22.0.1207.1 Safari/537.1'</span>&#125;  <span class="comment"># 模拟浏览器正常访问</span></span><br><span class="line">        self.url = u  <span class="comment"># 设置要爬取的url</span></span><br><span class="line">        <span class="comment"># self.path = p  # 设置保存文件的路径</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getthepage</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"正在爬取"</span> + self.url)</span><br><span class="line">        req = requests.get(self.url, headers=self.head)</span><br><span class="line">        page = BeautifulSoup(req.text, <span class="string">"html.parser"</span>)</span><br><span class="line">        page = page.find(<span class="string">'table'</span>, class_=<span class="string">'table table-striped'</span>)</span><br><span class="line">        page = page.find_all(<span class="string">'a'</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> page:</span><br><span class="line">            href = a[<span class="string">'href'</span>]</span><br><span class="line">            <span class="keyword">if</span> re.match(<span class="string">"^http://static"</span>, href):</span><br><span class="line">                self.getit(a)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getit</span><span class="params">(self, a)</span>:</span></span><br><span class="line">        testurl = a[<span class="string">'href'</span>]</span><br><span class="line">        req = requests.get(testurl, headers=self.head)</span><br><span class="line">        page = BeautifulSoup(req.text, <span class="string">"html.parser"</span>)</span><br><span class="line">        page = page.find(<span class="string">'h3'</span>, class_=<span class="string">'wybug_level'</span>)</span><br><span class="line">        ttttt = page.text.encode(<span class="string">'latin1'</span>).decode(<span class="string">'utf-8'</span>)</span><br><span class="line">        <span class="keyword">if</span> ttttt == <span class="string">'危害等级：		高'</span>:</span><br><span class="line">            f = open(<span class="string">'./t.txt'</span>, <span class="string">'a'</span>)</span><br><span class="line">            f.write(a.string + a[<span class="string">'href'</span>] + <span class="string">'\n'</span>)</span><br><span class="line">            print(a.string + a[<span class="string">'href'</span>] + <span class="string">'\n'</span>)</span><br><span class="line">            f.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">2016</span>):</span><br><span class="line">    thestr = <span class="string">'http://wy.hx99.net/search?keywords=&amp;&amp;content_search_by=by_bugs&amp;&amp;search_by_html=False&amp;&amp;page='</span> + str(i)</span><br><span class="line">    test = web_of_spidep(thestr)</span><br><span class="line">    test.getthepage()</span><br></pre></td></tr></table></figure>
+        <!-- Menu -->
+        <button id="menubtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">more_vert</i>
+            <span class="visuallyhidden">show menu</span>
+        </button>
+        <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="menubtn">
+            
 
-      
+            
+
+            
+                <a class="index_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=keysking瞎写东西的地方&url=http://yoursite.com&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+                    <li class="mdl-menu__item mdl-js-ripple-effect">
+                        شارك على Weibo
+                    </li>
+                </a>
+            
+
+            
+                <a class="index_share-link" href="https://twitter.com/intent/tweet?text=keysking瞎写东西的地方&url=http://yoursite.com&via=Keysking" target="_blank">
+                    <li class="mdl-menu__item mdl-js-ripple-effect">
+                        شارك على Twitter
+                    </li>
+                </a>
+            
+
+            
+                <a class="index_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com" target="_blank">
+                    <li class="mdl-menu__item mdl-js-ripple-effect">
+                        شارك على Facebook
+                    </li>
+                </a>
+            
+
+            
+                <a class="index_share-link" href="https://plus.google.com/share?url=http://yoursite.com" target="_blank">
+                    <li class="mdl-menu__item mdl-js-ripple-effect">
+                        شارك على Google+
+                    </li>
+                </a>
+            
+
+            
+
+            
+
+            
+        </ul>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/python练手-爬取乌云镜像高危漏洞/2017/03/01" data-id="cjc8v92am0005xz3kmrwx0bzm" class="article-share-link">Teilen</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
+</div>
 
+    
+    <div class="locate-thumbnail-symbol"></div>
 
-  
-    <article id="post-web渗透方向总结" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/web渗透方向总结/2017/02/15" class="article-date">
-  <time datetime="2017-02-15T01:52:34.000Z" itemprop="datePublished">2017-02-15</time>
-</a>
+    <!-- Pin on top -->
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/web渗透方向总结/2017/02/15">web渗透方向总结</a>
-    </h1>
-  
 
-      </header>
+    <!-- Normal Post -->
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>​                                    <strong>持续更新中</strong> </p>
-<hr>
-<h2 id="PHP漏洞类"><a href="#PHP漏洞类" class="headerlink" title="PHP漏洞类"></a>PHP漏洞类</h2><ol>
-<li>strcmp(string,string)函数漏洞<ol>
-<li>此函数有两个参数,如果两个参数的内容一模一样,则返回0</li>
-<li>如果两参数中有一个参数为数组,则直接返回0</li>
-<li>可以在GET或POST中构造pass[]=1等类似语句,造成直接判断通过</li>
-</ol>
-</li>
-</ol>
         
-          <p class="article-more-link">
-            <a href="/web渗透方向总结/2017/02/15#more">Read More</a>
-          </p>
+            
+                <!-- Paradox Thumbnail -->
+                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
+    
         
-      
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+        
+    
+
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/dfggnjk389gasdg2rgsh/2017/12/10">在stm32的freeRTOS上进行微秒级延时(HAL库)</a></p>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/web渗透方向总结/2017/02/15" data-id="cjc8v92ap0009xz3kmc5vkx7f" class="article-share-link">Teilen</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
 
-
-  
-    <article id="post-DVWA漏洞系统攻略-low" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/DVWA漏洞系统攻略-low/2017/02/09" class="article-date">
-  <time datetime="2017-02-09T03:35:33.000Z" itemprop="datePublished">2017-02-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/DVWA漏洞系统攻略-low/2017/02/09">DVWA漏洞系统攻略_low</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p># </p>
-<h2 id="1-Brute-Force-暴力破解"><a href="#1-Brute-Force-暴力破解" class="headerlink" title="1.Brute Force    暴力破解"></a>1.Brute Force    暴力破解</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>( </span><br><span class="line"><span class="keyword">isset</span></span><br><span class="line">( $_GET[<span class="string">'Login'</span>] ) ) &#123;</span><br><span class="line"></span><br><span class="line">    $user = $_GET[<span class="string">'username'</span>];</span><br><span class="line">    </span><br><span class="line">    $pass = $_GET[<span class="string">'password'</span>];</span><br><span class="line">    $pass = md5($pass);</span><br><span class="line"></span><br><span class="line">    $qry = <span class="string">"SELECT * FROM `users` WHERE user='$user' AND password='$pass';"</span>;</span><br><span class="line">    $result = mysql_query( $qry ) <span class="keyword">or</span> <span class="keyword">die</span>( <span class="string">'&lt;pre&gt;'</span> . mysql_error() . <span class="string">'&lt;/pre&gt;'</span> );</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>( $result &amp;&amp; mysql_num_rows( $result ) == <span class="number">1</span> ) &#123;</span><br><span class="line">        <span class="comment">// Get users details</span></span><br><span class="line">        $i=<span class="number">0</span>; <span class="comment">// Bug fix.</span></span><br><span class="line">        $avatar = mysql_result( $result, $i, <span class="string">"avatar"</span> );</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Login Successful</span></span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&lt;p&gt;Welcome to the password protected area "</span> . $user . <span class="string">"&lt;/p&gt;"</span>;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'&lt;img src="'</span> . $avatar . <span class="string">'" /&gt;'</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//Login failed</span></span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&lt;pre&gt;&lt;br&gt;Username and/or password incorrect.&lt;/pre&gt;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    mysql_close();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>从取得网页上传来的数据后,直接去构建查询语句,进行sql查询,没有经过任何处理,完全不用啥暴力破解,直接破坏sql语句就好了嘛….</p>
+            
         
-          <p class="article-more-link">
-            <a href="/DVWA漏洞系统攻略-low/2017/02/09#more">Read More</a>
-          </p>
-        
-      
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/dfggnjk389gasdg2rgsh/2017/12/10" target="_self">واصل القراءة</a>
+        </span>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/DVWA漏洞系统攻略-low/2017/02/09" data-id="cjc8v92ae0001xz3k4u5mdw9r" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DVWA-漏洞测试/">-DVWA -漏洞测试</a></li></ul>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/img/avatar.png" width="44px" height="44px" alt="Keysking's avatar">
+            </div>
+            <div>
+                <strong>Keysking</strong>
+                <span>Dec 10, 2017</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+          
+              <!-- Category -->
+              <span class="post_entry-category">
+                  <a class="post_category-link" href="/categories/未分类/">未分类</a>
+              </span>
+            
 
-    </footer>
-  </div>
-  
-</article>
+            
 
+            
 
-  
-    <article id="post-L293D电机驱动板在Arduino上使用笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/L293D电机驱动板在Arduino上使用笔记/2017/02/09" class="article-date">
-  <time datetime="2017-02-09T03:35:33.000Z" itemprop="datePublished">2017-02-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/L293D电机驱动板在Arduino上使用笔记/2017/02/09">L293D电机驱动版在Arduino上使用笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="硬件连接"><a href="#硬件连接" class="headerlink" title="硬件连接"></a>硬件连接</h2><p><img src="https://raw.githubusercontent.com/keysking/Picture-bed/master/L293D.jpg" alt="L293D"></p>
-        
-          <p class="article-more-link">
-            <a href="/L293D电机驱动板在Arduino上使用笔记/2017/02/09#more">Read More</a>
-          </p>
-        
-      
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/L293D电机驱动板在Arduino上使用笔记/2017/02/09" data-id="cjc8v92ak0004xz3ksplgv5lx" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Arduino-电子/">-Arduino -电子</a></li></ul>
+</div>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">weiter &raquo;</a>
-  </nav>
-
-</section>
+            
+            
         
-          <aside id="sidebar">
-  
+    
+        
+            
+                <!-- Paradox Thumbnail -->
+                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+        
     
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino-电子/">-Arduino -电子</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DVWA-漏洞测试/">-DVWA -漏洞测试</a></li></ul>
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/qml-imagegsdfsgfsdgyku/2017/12/07">QML Image动态刷新图片来自C++的QImage的一个巨坑</a></p>
     </div>
-  </div>
 
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Arduino-电子/" style="font-size: 10px;">-Arduino -电子</a> <a href="/tags/DVWA-漏洞测试/" style="font-size: 10px;">-DVWA -漏洞测试</a>
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            最近,需要在QML上显示来自OPenCV的摄像头视频,因为是视频,既好多好多图片,所以需要QML上动态刷新来自C++的QImage
+具...
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/qml-imagegsdfsgfsdgyku/2017/12/07" target="_self">واصل القراءة</a>
+        </span>
     </div>
-  </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/img/avatar.png" width="44px" height="44px" alt="Keysking's avatar">
+            </div>
+            <div>
+                <strong>Keysking</strong>
+                <span>Dec 07, 2017</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+          
+              <!-- Category -->
+              <span class="post_entry-category">
+                  <a class="post_category-link" href="/categories/未分类/">未分类</a>
+              </span>
+            
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
+            
+
+            
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
     </div>
-  </div>
+</div>
 
-
-  
+            
+            
+        
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
-    <div class="widget">
-      <ul>
         
-          <li>
-            <a href="/w3af翻译与使用/2017/03/12">w3af翻译与使用</a>
-          </li>
+            
+                <!-- Paradox Thumbnail -->
+                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
+    
         
-          <li>
-            <a href="/CTF-天网管理系统-md50e与弱类型相等/2017/03/09">CTF_天网管理系统_md50e与弱类型相等</a>
-          </li>
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
         
-          <li>
-            <a href="/python练手-爬取乌云镜像高危漏洞/2017/03/01">[python练手]爬取乌云镜像高危漏洞</a>
-          </li>
-        
-          <li>
-            <a href="/web渗透方向总结/2017/02/15">web渗透方向总结</a>
-          </li>
-        
-          <li>
-            <a href="/DVWA漏洞系统攻略-low/2017/02/09">DVWA漏洞系统攻略_low</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+    
 
-  
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/fgsdfsdf54/2017/11/26">git解决无法正常添加个别submodule</a></p>
+    </div>
+
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/fgsdfsdf54/2017/11/26" target="_self">واصل القراءة</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/img/avatar.png" width="44px" height="44px" alt="Keysking's avatar">
+            </div>
+            <div>
+                <strong>Keysking</strong>
+                <span>Nov 26, 2017</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+          
+              <!-- Category -->
+              <span class="post_entry-category">
+                  <a class="post_category-link" href="/categories/编程/">编程</a>, <a class="post_category-link" href="/categories/编程/编程思想/">编程思想</a>
+              </span>
+            
+
+            
+
+            
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
+    </div>
+</div>
+
+            
+            
+        
+    
+        
+            
+                <!-- Paradox Thumbnail -->
+                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+        
+    
+
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/autolistener/2017/11/05">autoListener最新版本</a></p>
+    </div>
+
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            当前最新版本为1.1
+下载地址:链接：
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/autolistener/2017/11/05" target="_self">واصل القراءة</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/img/avatar.png" width="44px" height="44px" alt="Keysking's avatar">
+            </div>
+            <div>
+                <strong>Keysking</strong>
+                <span>Nov 05, 2017</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+          
+              <!-- Category -->
+              <span class="post_entry-category">
+                  <a class="post_category-link" href="/categories/未分类/">未分类</a>
+              </span>
+            
+
+            
+
+            
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
+    </div>
+</div>
+
+            
+            
+        
+    
+        
+            
+                <!-- Paradox Thumbnail -->
+                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+        
+    
+
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/jasdfla1202/2017/09/28">Windows上Clion写Qt 环境配置</a></p>
+    </div>
+
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            最近项目需要使用Qt来写界面,但是因为之前的项目的庞大代码都在Clion上进行开发的,所以不太想移植到Qt Creator.
+所以需要...
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/jasdfla1202/2017/09/28" target="_self">واصل القراءة</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/img/avatar.png" width="44px" height="44px" alt="Keysking's avatar">
+            </div>
+            <div>
+                <strong>Keysking</strong>
+                <span>Sep 28, 2017</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+          
+              <!-- Category -->
+              <span class="post_entry-category">
+                  <a class="post_category-link" href="/categories/编程/">编程</a>
+              </span>
+            
+
+            
+
+            
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
+    </div>
+</div>
+
+            
+            
+        
+    
+        
+            
+                <!-- Paradox Thumbnail -->
+                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+        
+    
+
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/undefined-symbol-xqueuecreatecountingsemaphore/2017/09/14">Undefined symbol xQueueCreateCountingSemaphore 问题解决</a></p>
+    </div>
+
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            &nbsp;
+
+用C++  MDK  HAL  freeRTOS写stm32 程序,今晚编译一直报这个错误,搜索了一下,这玩意明明定义了呀,是人家freeRTOS官方的文件,我没碰呀.
+google,百度齐上阵,没几个遇见的,遇见的也没见有什么解决方案的,后来终于在freeRTOS官方论坛的陈旧存档里翻到了相关的讨论(点这),说是要把
+configUSE_COUNTING_SEMAPHORES设置为1.
+
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/undefined-symbol-xqueuecreatecountingsemaphore/2017/09/14" target="_self">واصل القراءة</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/img/avatar.png" width="44px" height="44px" alt="Keysking's avatar">
+            </div>
+            <div>
+                <strong>Keysking</strong>
+                <span>Sep 14, 2017</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+          
+              <!-- Category -->
+              <span class="post_entry-category">
+                  <a class="post_category-link" href="/categories/stm32-cube-HAl-freeRTOS/">stm32 cube HAl freeRTOS</a>
+              </span>
+            
+
+            
+
+            
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
+    </div>
+</div>
+
+            
+            
+        
+    
+
+    
+    <!-- Index nav -->
+        <nav class="material-nav mdl-cell mdl-cell--12-col">
+            <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_forward</i></button></a>
+        </nav>
+    
+
+    
+        <script type="text/ls-javascript" id="thumbnail-script">
+    var randomNum;
+
+    var locatePost = $('.locate-thumbnail-symbol').next();
+    for(var i = 0; i < 10; i++) {
+        randomNum = Math.floor(Math.random() * 19 + 1);
+
+        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
+        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+
+        locatePost = locatePost.next();
+    }
+</script>
+
+    
+</div>
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="Keysking's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        keysking@163.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                الرئيسية
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    أرشيف
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2017/12/">December 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">November 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">September 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">August 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/07/">July 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">June 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">March 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">February 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/01/">January 2017<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            سمة - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
 </aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2018 Keysking<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>keysking瞎写东西的地方
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
 
 
-<script src="/js/script.js"></script>
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
 
 
 
-  </div>
-</body>
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Swiftye -->
+    
+
+    <!-- Local Search-->
+    
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
 </html>

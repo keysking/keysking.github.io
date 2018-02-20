@@ -244,7 +244,7 @@
 
     
         <meta property="article:published_time" content="Thu Dec 07 2017 01:08:36 GMT+0800">
-        <meta property="article:modified_time" content="Wed Jan 10 2018 21:30:20 GMT+0800">
+        <meta property="article:modified_time" content="Tue Feb 20 2018 09:47:40 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -267,7 +267,7 @@
     "mainEntityOfPage": "http://yoursite.com/qml-imagegsdfsgfsdgyku/2017/12/07/index.html",
     "headline": "QML Image动态刷新图片来自C++的QImage的一个巨坑",
     "datePublished": "Thu Dec 07 2017 01:08:36 GMT+0800",
-    "dateModified": "Wed Jan 10 2018 21:30:20 GMT+0800",
+    "dateModified": "Tue Feb 20 2018 09:47:40 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Keysking",
@@ -489,37 +489,12 @@
 <p><a href="http://blog.csdn.net/luoyayun361/article/details/61936032" target="_blank" rel="noopener">Qt C++发送图片到QML显示</a></p>
 <p>但是!<br>我按照他们的方法,根本无法正常刷新图片,只能显示第一张!!!<br>我按照他们的方法,根本无法正常刷新图片,只能显示第一张!!!<br>我按照他们的方法,根本无法正常刷新图片,只能显示第一张!!!</p>
 <p>后来….一段艰辛…..终于解决问题….记录与此,望其他小伙伴不要重蹈覆辙<br>在上面那篇博客,它的qml文件里是这么写的:</p>
-<pre><code>&lt;span class=&quot;hljs-tag&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;hljs-rules&quot;&gt;{
-        &lt;span class=&quot;hljs-rule&quot;&gt;&lt;span class=&quot;hljs-attribute&quot;&gt;id&lt;/span&gt;:&lt;span class=&quot;hljs-value&quot;&gt;img
-        anchors.fill: parent
-    &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;}
-    &lt;span class=&quot;hljs-tag&quot;&gt;Connections&lt;/span&gt;&lt;span class=&quot;hljs-rules&quot;&gt;{
-        &lt;span class=&quot;hljs-rule&quot;&gt;&lt;span class=&quot;hljs-attribute&quot;&gt;target&lt;/span&gt;:&lt;span class=&quot;hljs-value&quot;&gt; CodeImage
-        onCallQmlRefeshImg:{
-            img.source = &lt;span class=&quot;hljs-string&quot;&gt;&quot;&quot;&lt;/span&gt;
-            img.source = &lt;span class=&quot;hljs-string&quot;&gt;&quot;image://CodeImg&quot;&lt;/span&gt;
-        &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;}
-    }`&lt;/pre&gt;
-&amp;nbsp;
-
-并且提到:
-
-_注意，这里刷新图片的时候必须先设置为空img.source = “”，否则无法刷新。_
-
-其实,后面的版本中(我用的5.8),这样已经不行了,猜测是更新了缓存机制的原因
-如果使用相同的地址去获取图片…那么就直接从缓存里拿,so,无法正常刷新,如果你想正常刷新,可以采取下面这种写法:
-&lt;pre class=&quot;prettyprint&quot;&gt;`&lt;span class=&quot;hljs-tag&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;hljs-rules&quot;&gt;{
-        &lt;span class=&quot;hljs-rule&quot;&gt;&lt;span class=&quot;hljs-attribute&quot;&gt;id&lt;/span&gt;:&lt;span class=&quot;hljs-value&quot;&gt;img
-        anchors.fill: parent
-    &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;}
-    &lt;span class=&quot;hljs-tag&quot;&gt;Connections&lt;/span&gt;&lt;span class=&quot;hljs-rules&quot;&gt;{
-        &lt;span class=&quot;hljs-rule&quot;&gt;&lt;span class=&quot;hljs-attribute&quot;&gt;target&lt;/span&gt;:&lt;span class=&quot;hljs-value&quot;&gt; CodeImage
-        onCallQmlRefeshImg:{
-            img.source = &lt;span class=&quot;hljs-string&quot;&gt;&quot;&quot;&lt;/span&gt;
-            img.source = &lt;span class=&quot;hljs-string&quot;&gt;&quot;image://CodeImg/&quot;&lt;/span&gt;+ Math.&lt;span class=&quot;hljs-function&quot;&gt;random()&lt;/span&gt;
-        &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;}
-    }
-</code></pre><p>这样,就能正常从C++那边获取QImage了~</p>
+<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Image&#123;</span><br><span class="line">        id:img</span><br><span class="line">        anchors.fill: parent</span><br><span class="line">    &#125;</span><br><span class="line">    Connections&#123;</span><br><span class="line">        target: CodeImage</span><br><span class="line">        onCallQmlRefeshImg:&#123;</span><br><span class="line">            img.source = <span class="string">""</span></span><br><span class="line">            img.source = <span class="string">"image://CodeImg"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</code></pre><p>并且提到:    </p>
+<p><em>注意，这里刷新图片的时候必须先设置为空img.source = “”，否则无法刷新。</em>_</p>
+<p>其实,后面的版本中(我用的5.8),这样已经不行了,猜测是更新了缓存机制的原因如果使用相同的地址去获取图片…那么就直接从缓存里拿,so,无法正常刷新,如果你想正常刷新,可以采取下面这种写法:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Image&#123;</span><br><span class="line">        id:img</span><br><span class="line">        anchors.fill: parent</span><br><span class="line">    &#125;</span><br><span class="line">    Connections&#123;</span><br><span class="line">        target: CodeImage</span><br><span class="line">        onCallQmlRefeshImg:&#123;</span><br><span class="line">            img.source = <span class="string">"image://CodeImg/"</span>+ <span class="built_in">Math</span>.random()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>这样,就能正常从C++那边获取QImage了~</p>
 
         
     
